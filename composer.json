@@ -1,0 +1,19 @@
+{
+	"name" : "mcroiban/roiban_tech_solutions",
+	"description" : "roiban_tech_solutions",
+	"authors" : [{
+			"name" : "Calin Roiban",
+			"email" : "calin@roiban.com"
+		}
+	],
+	"minimum-stability" : "dev",
+	"prefer-stable" : true,
+	"require" : {
+		"composer/installers" : "^1",
+		"guzzlehttp/guzzle" : "^6",
+		"fabpot/goutte" : "^3"
+	},
+	"require-dev" : {
+		"psr/log" : "^1"
+	}
+}

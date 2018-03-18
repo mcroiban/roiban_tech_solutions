@@ -1,0 +1,7 @@
+# Application
+.bkp
+.tmp
+
+# composer packages
+vendor/
+composer.lock
