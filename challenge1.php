@@ -54,26 +54,26 @@ $fp1 = fopen('data/dob_before_010190.csv', 'w');
 $fp2 = fopen('data/dob_after_010190.csv', 'w');
 $fp3 = fopen('data/dob_after_010180.csv', 'w');
 
-
-
-// set midpoint
-$midpoint = new DateTime('1990-01-01');
-
-// parse data
+// build header
 $csv_header = [];
 
 foreach($users[0] as $k => $v) {
-    $csv_header[] = $k;
     if (is_array($v)) {
         foreach($v as $k2 => $v2) {
             $csv_header[] = $k . '_' . $k2;
         }
+    } else {
+         $csv_header[] = $k;
     }
 }
 
 fputcsv($fp1, $csv_header);
 fputcsv($fp2, $csv_header);
 fputcsv($fp3, $csv_header);
+
+// set variables
+$midpoint1 = new DateTime('1990-01-01');
+$midpoint2 = new DateTime('1980-01-01');
 
 // parse data
 foreach ($users as $user) {
@@ -89,12 +89,21 @@ foreach ($users as $user) {
         }
     }
     
+    // dob object
     $dob = new DateTime($user['dob']);
-    // split
-    if($dob >= $midpoint) {
+    
+    // write csv based on midpoint1
+    if($dob >= $midpoint1) {
         fputcsv($fp2, $row);
     } else {
         fputcsv($fp1, $row);
+    }
+    
+    // write csv based on midpoint2
+    if($dob >= $midpoint2) {
+        if($user['gender'] == 'male' && $user['nat'] == 'US') {
+            fputcsv($fp3, $row);
+        }
     }
 }
 
