@@ -37,8 +37,14 @@ use Goutte\Client;
 
 $client = new Client();
 
+// directory to store data 
+$dir = 'data';
+if (! is_dir($dir)) {
+    mkdir($dir);
+}
+
 // open file pointer
-$fp = fopen('data/crawler.csv', 'w');
+$fp = fopen($dir . '/crawler.csv', 'w');
 
 // build csv header
 $csv_header = [

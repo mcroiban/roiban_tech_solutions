@@ -47,10 +47,16 @@ if ($response->getStatusCode() != 200) exit();
 $data = json_decode($response->getBody(), true);
 $users = $data['results'];
 
+// directory to store data 
+$dir = 'data';
+if (! is_dir($dir)) {
+    mkdir($dir);
+}
+
 // open file pointers
-$fp1 = fopen('data/users_dob_before_010190.csv', 'w');
-$fp2 = fopen('data/users_dob_after_010190.csv', 'w');
-$fp3 = fopen('data/users_us_male_dob_after_010180.csv', 'w');
+$fp1 = fopen($dir . '/users_dob_before_010190.csv', 'w');
+$fp2 = fopen($dir . '/users_dob_after_010190.csv', 'w');
+$fp3 = fopen($dir . '/users_us_male_dob_after_010180.csv', 'w');
 
 // build header
 $csv_header = [];
