@@ -1,11 +1,11 @@
-# ROIBAN_TECH_SOLUTIONS
+# roiban_tech_solutions
 
 Solutions to Challenge 1 and Challenge 2.
 
 Requirements
 ------------
 
-PHP 7+, Guzzle 6+ and Goutte 3+.
+PHP 7+, Composer, Guzzle 6+ and Goutte 3+.
 
 Installation
 ------------
