@@ -1,4 +1,4 @@
-# roiban_tech_solutions
+# ROIBAN_TECH_SOLUTIONS
 
 Solutions to Challenge 1 and Challenge 2.
 
