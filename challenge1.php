@@ -47,13 +47,10 @@ if ($response->getStatusCode() != 200) exit();
 $data = json_decode($response->getBody(), true);
 $users = $data['results'];
 
-// Using January 1, 1990 as a midpoint, divide and sort the 100 responses into two csv files based on the users’ birthdates.
-// Create one CSV file that contains all American males born after January 1, 1980.
-
 // open file pointers
-$fp1 = fopen('data/dob_before_010190.csv', 'w');
-$fp2 = fopen('data/dob_after_010190.csv', 'w');
-$fp3 = fopen('data/dob_after_010180.csv', 'w');
+$fp1 = fopen('data/users_dob_before_010190.csv', 'w');
+$fp2 = fopen('data/users_dob_after_010190.csv', 'w');
+$fp3 = fopen('data/users_us_male_dob_after_010180.csv', 'w');
 
 // build header
 $csv_header = [];
